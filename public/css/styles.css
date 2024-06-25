@@ -1,0 +1,93 @@
+
+/* ======================= Cards ====================== */
+.cardBox {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+  }
+  
+  .cardBox .card {
+    position: relative;
+    background: var(--white); 
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid #E5E8E8;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+  }
+
+  .cardBox .card .numbers {
+    position: relative;
+    font-weight: 500;
+    font-size: 2.5rem;
+    color: var(--blue);
+  }
+  
+  .cardBox .card .cardName {
+    color: var(--black2);
+    font-size: 1.1rem;
+    margin-top: 5px;
+  }
+  
+  .cardBox .card .iconBx {
+    font-size: 3.5rem;
+    color: var(--black2);
+  }
+  
+  .cardBox .card:hover {
+    background: var(--blue);
+  }
+  .cardBox .card:hover .numbers,
+  .cardBox .card:hover .cardName,
+  .cardBox .card:hover .iconBx {
+    color: var(--white);
+  }
+
+  /* ======================= Charts ====================== */
+
+  .chartsBx{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 30px;
+  }
+  
+  .chart-panel {
+      border: 1px solid #E5E8E8;
+      border-radius: 20px;
+      padding: 15px; /* Espaçamento interno */
+      margin-bottom: 20px; /* Espaçamento inferior */
+      height: 500px;
+      box-shadow: 0 7px 25px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: center;
+}
+
+
+/* Adiciona borda arredondada e sombra */
+.border {
+  border: 1px solid #ddd;
+  border-radius: 20px;
+}
+
+.shadow-sm {
+  box-shadow: 0 .125rem .25rem rgba(0, 0, 0, 0.075);
+}
+
+/* Fundo mais claro para destacar as informações */
+.bg-light {
+  background-color: white;
+}
+
+/* Estilização do título */
+.text-center {
+  text-align: center;
+}

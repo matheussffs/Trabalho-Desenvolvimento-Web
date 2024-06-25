@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Filme</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="mt4">
+            <br />
+            <h1><%= filme ? 'Editar Filme' : 'Cadastro de Filme' %></h1>
+            <form action="<%= filme ? '/filmes/edit/' + filme.id : '/filmes/add' %>" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="titulo">Título:</label>
+                    <input type="text" class="form-control" id="titulo" name="titulo" value="<%= filme ? filme.titulo : '' %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="descricao">Descrição:</label>
+                    <textarea class="form-control" id="descricao" name="descricao" required><%= filme ? filme.descricao : '' %></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="ano_lancamento">Ano de Lançamento:</label>
+                    <input type="number" class="form-control" id="ano_lancamento" name="ano_lancamento" value="<%= filme ? filme.ano_lancamento : '' %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="id_categoria">Categoria:</label>
+                    <select class="form-control" id="id_categoria" name="id_categoria" required>
+                        <option value="">Selecione uma Categoria</option>
+                        <% categorias.forEach(categoria => { %>
+                            <option value="<%= categoria.id %>" <%= filme && filme.id_categoria === categoria.id ? 'selected' : '' %>><%= categoria.nome %></option>
+                        <% }) %>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="imagem">Imagem:</label>
+                    <input type="file" class="form-control" id="imagem" name="imagem" <%= !filme ? 'required' : '' %>>
+                </div>
+                <button type="submit" class="btn btn-primary"><%= filme ? 'Atualizar Filme' : 'Cadastrar Filme' %></button>
+            </form>
+            <hr>
+            <h2>Lista de Filmes</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Ano de Lançamento</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% filmes.forEach(filme => { %>
+                        <tr>
+                            <td><%= filme.titulo %></td>
+                            <td><%= filme.ano_lancamento %></td>
+                            <td>
+                                <a href="/filmes/edit/<%= filme.id %>" class="btn btn-secondary btn-sm">Editar</a>
+                                <form action="/filmes/delete/<%= filme.id %>" method="POST" style="display:inline;">
+                                    <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

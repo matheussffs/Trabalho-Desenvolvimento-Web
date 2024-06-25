@@ -1,0 +1,266 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Projeto Lavagem API",
+      "version": "1.0.0",
+      "description": "API para gerenciamento de filmes e categorias"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:3000",
+        "description": "Servidor local"
+      }
+    ],
+    "paths": {
+      "/filmes/add": {
+        "get": {
+          "summary": "Listar filmes e renderizar formulário",
+          "tags": [
+            "Filmes"
+          ],
+          "responses": {
+            "200": {
+              "description": "Lista de filmes renderizada"
+            }
+          }
+        },
+        "post": {
+          "summary": "Adicionar um novo filme",
+          "tags": [
+            "Filmes"
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/x-www-form-urlencoded": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "titulo": {
+                      "type": "string"
+                    },
+                    "descricao": {
+                      "type": "string"
+                    },
+                    "ano_lancamento": {
+                      "type": "integer"
+                    },
+                    "id_categoria": {
+                      "type": "integer"
+                    },
+                    "imagem": {
+                      "type": "string",
+                      "format": "binary"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Filme adicionado com sucesso"
+            }
+          }
+        }
+      },
+      "/filmes/edit/{id}": {
+        "post": {
+          "summary": "Atualizar um filme existente",
+          "tags": [
+            "Filmes"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/x-www-form-urlencoded": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "titulo": {
+                      "type": "string"
+                    },
+                    "descricao": {
+                      "type": "string"
+                    },
+                    "ano_lancamento": {
+                      "type": "integer"
+                    },
+                    "id_categoria": {
+                      "type": "integer"
+                    },
+                    "imagem": {
+                      "type": "string",
+                      "format": "binary"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Filme atualizado com sucesso"
+            }
+          }
+        }
+      },
+      "/filmes/delete/{id}": {
+        "post": {
+          "summary": "Deletar um filme",
+          "tags": [
+            "Filmes"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Filme deletado com sucesso"
+            }
+          }
+        }
+      },
+      "/filmes/show/{id}": {
+        "get": {
+          "summary": "Mostrar os detalhes de um filme",
+          "tags": [
+            "Filmes"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Detalhes do filme"
+            }
+          }
+        }
+      },
+      "/categorias/add": {
+        "get": {
+          "summary": "Listar categorias e renderizar formulário",
+          "tags": [
+            "Categorias"
+          ],
+          "responses": {
+            "200": {
+              "description": "Lista de categorias renderizada"
+            }
+          }
+        },
+        "post": {
+          "summary": "Adicionar uma nova categoria",
+          "tags": [
+            "Categorias"
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/x-www-form-urlencoded": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "nome": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Categoria adicionada com sucesso"
+            }
+          }
+        }
+      },
+      "/categorias/edit/{id}": {
+        "post": {
+          "summary": "Atualizar uma categoria existente",
+          "tags": [
+            "Categorias"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/x-www-form-urlencoded": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "nome": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Categoria atualizada com sucesso"
+            }
+          }
+        }
+      },
+      "/categorias/delete/{id}": {
+        "post": {
+          "summary": "Deletar uma categoria",
+          "tags": [
+            "Categorias"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Categoria deletada com sucesso"
+            }
+          }
+        }
+      }
+    }
+  }
+  

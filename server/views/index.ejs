@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmes por Categoria</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="mt-4">
+            <h1>Filmes Disponíveis</h1>
+            <br />
+            <% Object.keys(filmesPorCategoria).forEach(categoria => { %>
+                <h2><%= categoria %></h2>
+                <div class="row">
+                    <% filmesPorCategoria[categoria].forEach(filme => { %>
+                        <div class="col-md-4">
+                            <div class="card mb-4">
+                                <a href="/filmes/show/<%= filme.id %>">
+                                    <img src="data:image/jpeg;base64,<%= filme.imagem.toString('base64') %>" width="300px" height="450px" class="card-img-top" alt="<%= filme.titulo %>">
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <a href="/filmes/show/<%= filme.id %>"><%= filme.titulo %></a>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    <% }) %>
+                </div>
+                <br />
+            <% }) %>
+        </div>
+    </div>
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

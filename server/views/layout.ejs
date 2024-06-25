@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/bootstrap/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body>
+    <!-- Topbar -->
+    <div style="position: fixed; top: 0; width: 100%; z-index: 100;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color:	#033a87 !important">
+        <a class="navbar-brand" style="color: white;">Filmes</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="/index">Início <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Cadastros
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="/categorias/add">
+                  <i class="bi bi-film mr-2"></i> Cadastro de Categoria
+                </a>
+                <a class="dropdown-item" href="/filmes/add">
+                  <i class="bi bi-camera-reels mr-2"></i> Cadastro de Filme
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <br />
+
+    <!-- Conteúdo Principal -->
+    <br />
+    <main role="main">
+        <div>
+            <%- body %>
+        </div> 
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer fixed-bottom bg-dark">
+        <div class="container text-center">
+            <span class="text-muted">© 2024 Filmes</span>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

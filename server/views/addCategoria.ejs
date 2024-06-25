@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Categoria</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="mt4">
+            <br />
+            <h1><%= categoria ? 'Editar Categoria' : 'Cadastro de Categoria' %></h1>
+            <form action="<%= categoria ? '/categorias/edit/' + categoria.id : '/categorias/add' %>" method="POST">
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" class="form-control" id="nome" name="nome" value="<%= categoria ? categoria.nome : '' %>" required>
+                </div>
+                <button type="submit" class="btn btn-primary"><%= categoria ? 'Atualizar Registro' : 'Salvar Registro' %></button>
+            </form>
+        </div>
+
+        <br />
+        
+        <div class="mt-4">
+            <h2>Lista de Categorias</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% categorias.forEach(categoria => { %>
+                        <tr>
+                            <td><%= categoria.nome %></td>
+                            <td>
+                                <a href="/categorias/edit/<%= categoria.id %>" class="btn btn-secondary btn-sm">Editar</a>
+                                <form action="/categorias/delete/<%= categoria.id %>" method="POST" style="display:inline;">
+                                    <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br />
+    <script src="/js/scripts.js"></script>
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
